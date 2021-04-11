@@ -7,17 +7,21 @@ import {StyleSheet, Text, Dimensions, TouchableHighlight} from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
+    color: '#8b10ae',
     fontSize: 40,
     height: Dimensions.get('window').width / 4,
     width: Dimensions.get('window').width / 4,
     padding: 20,
-    backgroundColor: '#f0f0f0',
-    borderWidth: 1,
-    borderColor: '#888',
+    backgroundColor: '#fff',
+    // borderBottomWidth: StyleSheet.hairlineWidth ,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#8b10ae',
   },
   operationButton: {
     color: '#fff',
-    backgroundColor: '#fa8231'
+    backgroundColor: '#8b10ae',
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: '#ffff',
   },
   buttonDouble: {
     width: (Dimensions.get('window').width /4) *2,
