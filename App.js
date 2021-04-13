@@ -1,56 +1,97 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import {
+  StatusBar,
   StyleSheet,
   View,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
 } from 'react-native'
-import Button from './src/components/Button'
-import Display from './src/components/Display'
-
-// Criar uma constante e igualha-la a uma arrow function que retorna todos os itens da tela 
 
 const App = () => {
- 
-  var  state = {
-    displayValue: 0,
 
-  }
+  
+    const buttons = ['AC', 'DEL', '%', '/', 7, 8, 9, '*', 4, 5, 6, '-', 3, 2, 1, '+', 0, '.', '+/-', '=']  
+  
+    const [currentNumber, setCurrentNumber] = useState("")
+
+    function calculator(){
+      const splitNumbers = currentNumber.split(' ')
+      const fistNumber = parseFloat(splitNumbers[0])
+      const lastNumber = parseFloat(splitNumbers[2])
+      const operator = splitNumbers[1]
+  
+      switch(operator){
+        case '+':
+          setCurrentNumber((fistNumber + lastNumber).toString())
+          return
+        case '-': 
+          setCurrentNumber((fistNumber - lastNumber).toString())
+          return
+        case '*':
+          setCurrentNumber((fistNumber * lastNumber).toString())
+          return
+        case '/': 
+          setCurrentNumber((fistNumber / lastNumber).toString())
+          return
+      }
+    }
+  
+    function handleInput(buttonPressed){
+
+      console.log(buttonPressed)
+
+      if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "*" | buttonPressed === "/" ){
+        setCurrentNumber(currentNumber + " " + buttonPressed + " ")
+        return
+      }
+
+      switch(buttonPressed){
+        case 'DEL':
+          setCurrentNumber(currentNumber.substring(0, (currentNumber.length -1)))
+          return
+        case 'AC':
+         
+          setCurrentNumber("")
+          return
+        case '=':
+
+          calculator()
+          return
+        case '+/-':
+          return
+      }
+      setCurrentNumber(currentNumber + buttonPressed)
+    }
+
   return (
-    <View style = {styles.contanier}> 
+    <SafeAreaView>
 
-    <Display value = {state.displayValue} />
+      <View >
+        <Text >{currentNumber}</Text>
+      </View>
 
-    <View style = {styles.buttons}>
-              <Button label =  'ac' triple />
-              <Button label = '/' operation />
-              <Button label = '7' />
-              <Button label = '8' />
-              <Button label = '9' />
-              <Button label = '*' operation />
-              <Button label = '4' />
-              <Button label = '5' />
-              <Button label = '6' />
-              <Button label = '-' operation/>
-              <Button label = '1' />
-              <Button label = '2' />
-              <Button label = '3' />
-              <Button label = '+' operation />
-              <Button label = '0' double/>
-              <Button label = '.'/>
-              <Button label = '='/>
-    </View>
+      <View>
+        {buttons.map(
+          
+          (button) => 
+          button === '=' ?
+        <TouchableOpacity onPress={() => handleInput(button)} key={button}>
+          <Text >{button}</Text>
+        </TouchableOpacity>
 
-    </View>
+          :
+
+          <TouchableOpacity onPress={() => handleInput(button)} key={button} >
+            <Text >{button}</Text>
+          </TouchableOpacity>
+          
+        )}
+      </View>
+      
+    </SafeAreaView>
+    
   )
 }
-
-const styles = StyleSheet.create({ 
-  contanier: {
-    flex:1
-  },
-  buttons: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  }
-  })
 
 export default App;
