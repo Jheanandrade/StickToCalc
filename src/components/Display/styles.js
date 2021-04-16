@@ -14,7 +14,7 @@ textResult: {
   fontWeight: 'bold',
   justifyContent: 'flex-end',
   color:  '#000',
-  fontSize: 90,
+  fontSize: 80,
 },
 textHistory: {
   fontWeight: 'bold',

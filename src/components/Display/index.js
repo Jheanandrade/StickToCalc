@@ -13,7 +13,7 @@ export default function Display({history, calc}) {
     <Text style ={Style.textHistory} numberOfLines={1}>{history}</Text>
     </View>
 
-    <ScrollView showsHorizontalScrollIndicator = {false} horizontal>
+    <ScrollView showsHorizontalScrollIndicator = {true} horizontal>
 
     <View>
     <Text style = {Style.textResult} numberOfLines={1}> {calc} </Text>

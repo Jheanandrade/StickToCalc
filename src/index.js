@@ -19,29 +19,50 @@ export default function App() {
 
     function calculator(){
       const splitNumbers = currentNumber.split(' ')
-      const fistNumber = parseFloat(splitNumbers[0])
-      const lastNumber = parseFloat(splitNumbers[2])
-      const operator = splitNumbers[1]
-  
-      switch(operator){
-        case '+':
-          setCurrentNumber((fistNumber + lastNumber).toString())
-          return
-        case '-': 
-          setCurrentNumber((fistNumber - lastNumber).toString())
-          return
-        case '*':
-          setCurrentNumber((fistNumber * lastNumber).toString())
-          return
-        case '/': 
-          setCurrentNumber((fistNumber / lastNumber).toString())
-          return
-      }
+
+      let sumTotal = 0;
+      let currentOperation = null;
+
+      splitNumbers.forEach((item, index) => {
+        console.log(item)
+        console.log(sumTotal)
+        if( item === '+'|| item === '-'|| item === 'x'|| item === '÷')
+        {
+            currentOperation = item
+        } else if( index === 0) {
+             sumTotal = parseInt(item)
+        } else {
+
+          console.log("calc")
+
+          switch(currentOperation){
+          case '+':
+            
+            sumTotal = sumTotal+ parseInt(item)
+            break
+          case '-': 
+          
+          sumTotal = sumTotal- parseInt(item)
+          break
+          case 'x':
+            
+            sumTotal = sumTotal * parseInt(item)
+            break
+          case '÷': 
+          
+          sumTotal = sumTotal / parseInt(item)
+          break
+        }
+        }
+      })
+
+      setCurrentNumber((sumTotal ).toString())
+
     }
   
     function handleInput(buttonPressed){
 
-      if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "*" | buttonPressed === "/" ){
+      if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "÷"| buttonPressed === "=" ){
         if(!currentNumber) return
         setCurrentNumber(currentNumber + " " + buttonPressed + " ")
         return

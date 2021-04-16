@@ -26,11 +26,11 @@ export default function Buttons({handlePress}) {
                        <Icon name="minus" size={50} color="#fff" />  
        </ButtonAnimated>
        
-       <ButtonAnimated onPress= {()=> handlePress('*')} style ={[Styles.buttonOperations, {backgroundColor: '#f9c74f',}]}>
+       <ButtonAnimated onPress= {()=> handlePress('x')} style ={[Styles.buttonOperations, {backgroundColor: '#f9c74f',}]}>
                        <Icon name="times" size={50} color="#fff" />  
        </ButtonAnimated>
 
-       <ButtonAnimated onPress= {()=> handlePress('/')}style ={[Styles.buttonOperations, {backgroundColor: '#718355',}]}>
+       <ButtonAnimated onPress= {()=> handlePress('÷')}style ={[Styles.buttonOperations, {backgroundColor: '#718355',}]}>
                         <Icon name="divide" size={50} color="#fff" />  
        </ButtonAnimated>
      
