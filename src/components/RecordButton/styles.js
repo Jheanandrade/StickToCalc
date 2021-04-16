@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native'
 const styles = StyleSheet.create({
   contanier: {
   width: '100%',
-  height: '10%',
+  height: '13%',
   backgroundColor: '#fff',
   justifyContent: 'center',
   alignItems: 'center',
@@ -12,12 +12,20 @@ const styles = StyleSheet.create({
   recordButton:{
     marginBottom: 10,
     flexDirection: 'row',
-    backgroundColor: '#008080',
-    height: 70,
-    width: 250,
+    backgroundColor: '#007FFF',
+    height: 60,
+    width: 220,
     borderRadius: 150,
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset:{
+    width: 0,
+    height: 2,
+},
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   text: {
   color: '#fff',

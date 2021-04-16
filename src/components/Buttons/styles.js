@@ -4,12 +4,18 @@ import colors from '../styles/colors'
 
 const styles = StyleSheet.create({
   contanier:{
-  
     width: '100%',
-    height: '70%',
-    backgroundColor:'#D2691E'
+    height: '67%',
+    backgroundColor:'#fff'
   }, 
-  
+  contanierEnd: {
+   height: '12%',
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    paddingLeft: 50,
+  },
+
   contanierRL: {
     flexDirection: 'row',
     height: '88%'
@@ -21,35 +27,54 @@ contanierLeft: {
   backgroundColor: colors.backgroudcolor,
   justifyContent: 'space-between',
   alignItems: 'center',
-  paddingTop: 5,
-  paddingBottom: 5,
+  paddingTop: 20,
+  paddingBottom:20,
 },
 
 contanierRight: {
   height: '100%',
   width: '75%',
-  backgroundColor: '#556B2F'
+  backgroundColor: '#fff'
 },
 
 contanierClear: {
 width: '100%',
 height: '12%',
-backgroundColor: '#fff'
+backgroundColor: '#fff',
+flexDirection: 'row',
+justifyContent: 'space-around',
+alignItems: 'center'
 },
 
 contanierNumber: {
+  flex: 1,
+  paddingTop: 10,
+  paddingRight: 10,
+  flexDirection: 'row',
+  flexWrap: 'wrap',
   width: '100%',
   height: '88%',
-  backgroundColor: '#8B4513'
+  backgroundColor: '#fff',
+  justifyContent: 'space-around',
+ alignItems: 'center',
+ 
   },
 
   buttonOperations: {
-  height: 90,
-  width:90,
-  borderRadius: 45,
+  height: 75,
+  width:75,
+  borderRadius: 75 /2,
   backgroundColor: '#87CEFA',
   justifyContent: 'center',
   alignItems: 'center',
+  shadowColor: "#000",
+  shadowOffset:{
+  width: 0,
+  height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+elevation: 5,
   },
   buttonNumbers: {
     height: 50,
@@ -57,25 +82,72 @@ contanierNumber: {
     backgroundColor: '#1E90FF'
   },
   buttonClears: {
-    height: 50,
-    width:50,
-    backgroundColor: '#0000FF'
+    height: 45,
+    width:120,
+    borderRadius: 50 / 2,
+    backgroundColor:  '#3A847D',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: "#000",
+shadowOffset:{
+width: 0,
+height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+elevation: 5,
   },
-  contanierEqual: {
-    height: 50,
-    width:50,
-    backgroundColor: '#000080'
-  },
+ 
+  
+  
  buttonNumber: {
-  borderRadius: 25, 
-  width: 50,
-  height: 50,
-  borderWidth: 1,
-  backgroundColor: '#fff'
+   marginBottom: 30,
+  borderRadius: 75/2, 
+  width: 75,
+  height: 75,
+  backgroundColor: '#ac3931',
+  justifyContent: 'center',
+  alignItems: 'center',
+  shadowColor: "#000",
+shadowOffset:{
+width: 0,
+height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+elevation: 5,
  },
+
+
+ buttonEqual: {
+   flexDirection: 'row',
+  height: 50,
+  width:130,
+  borderRadius: 50 / 2,
+  backgroundColor:  '#3A847D',
+  justifyContent: 'center',
+  alignItems: 'center',
+  shadowColor: "#000",
+shadowOffset:{
+width: 0,
+height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+elevation: 5,
+},
+
 textOperation: {
+  flex: 1,
   color: colors.numberoperations,
-  fontSize: 45,
+  fontSize: 70,
+  textAlignVertical: 'center'
+},
+
+textClear: {
+  color: colors.numberoperations,
+  fontSize: 30,
+  textAlign: 'center',
   textAlign: 'center'
 }
 })
