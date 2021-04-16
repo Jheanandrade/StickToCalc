@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo, useState} from 'react'
 import {View, Text, TouchableOpacity, Animated} from 'react-native'
 
-export default function Buttons({children, style, button}) {
+export default function Buttons({children, style, onPress}) {
   const [anime] = useState(new Animated.Value(1))
 
   const up = useCallback(() => {
@@ -22,7 +22,7 @@ export default function Buttons({children, style, button}) {
   }, [anime])
 
   return (
-    <TouchableOpacity activeOpacity={0.7} onPressOut={() => up()} onPressIn= {() => down()} style = {style}> 
+    <TouchableOpacity activeOpacity={0.7} onPress={onPress} onPressOut={() => up()} onPressIn= {() => down()} style = {style}> 
 
     <Animated.View style= {animationScale}>
     {children}
