@@ -13,13 +13,13 @@ const styles = StyleSheet.create({
 textResult: {
   fontWeight: 'bold',
   justifyContent: 'flex-end',
-  color:  '#000',
+  color:  '#14213d',
   fontSize: 80,
 },
 textHistory: {
   fontWeight: 'bold',
   justifyContent: 'flex-end',
-  color: '#000',
+  color: '#14213d',
   fontSize: 20,
 }
 })

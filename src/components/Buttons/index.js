@@ -18,7 +18,7 @@ export default function Buttons({handlePress}) {
 
  <View style = {Styles.contanierLeft} >
        
-       <ButtonAnimated onPress= {()=> handlePress('+')}style ={[Styles.buttonOperations, {backgroundColor: '#ee6c4d',}]}>
+       <ButtonAnimated onPress= {()=> handlePress('+')}style ={[Styles.buttonOperations, {backgroundColor: '#f08080',}]}>
                         <Icon name="plus" size={50} color="#fff" />
        </ButtonAnimated>
 
@@ -30,7 +30,7 @@ export default function Buttons({handlePress}) {
                        <Icon name="times" size={50} color="#fff" />  
        </ButtonAnimated>
 
-       <ButtonAnimated onPress= {()=> handlePress('÷')}style ={[Styles.buttonOperations, {backgroundColor: '#718355',}]}>
+       <ButtonAnimated onPress= {()=> handlePress('÷')}style ={[Styles.buttonOperations, {backgroundColor: '#c75146',}]}>
                         <Icon name="divide" size={50} color="#fff" />  
        </ButtonAnimated>
      
@@ -42,7 +42,7 @@ export default function Buttons({handlePress}) {
  
       <View style = {Styles.contanierClear}>
 
-< TouchableOpacity onPress={()=> handlePress('AC')} activeOpacity={0.7} style = {[Styles.buttonClears, {backgroundColor: '#ff6b6b'}]}>
+< TouchableOpacity onPress={()=> handlePress('AC')} activeOpacity={0.7} style = {[Styles.buttonClears, {backgroundColor: '#e07a5f'}]}>
                       <Icon name="trash" size={25} color= '#fff'/>
 </TouchableOpacity>
 
@@ -58,7 +58,7 @@ export default function Buttons({handlePress}) {
         {KEYS_NUMBER.map((keyNumber) =>{
         return (  
          <ButtonAnimated key= {keyNumber} onPress={()=>handlePress(keyNumber)} style ={Styles.buttonNumber}>
-                        <Text>{keyNumber}</Text> 
+                        <Text style = {Styles.textNumbers}>{keyNumber}</Text> 
        </ButtonAnimated>)} )}
       </View>
       
