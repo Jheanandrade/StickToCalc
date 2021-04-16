@@ -16,6 +16,7 @@ export default function App() {
   
     const [currentNumber, setCurrentNumber] = useState("")
     const [lastNumber, setLastNumber] = useState("")
+    const [lastPressKey, setlastPressKey] = useState('')
 
     function calculator(){
       const splitNumbers = currentNumber.split(' ')
@@ -61,11 +62,23 @@ export default function App() {
     }
   
     function handleInput(buttonPressed){
-
-      if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "÷"| buttonPressed === "=" ){
+     
+      
+      console.log(lastPressKey)
+      if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "÷" ){
+        
+        if(lastPressKey === '+' | lastPressKey === "-" | lastPressKey === "x" | lastPressKey === "÷" ){
+          
+          setlastPressKey(buttonPressed)
+         
+         return
+        }
         if(!currentNumber) return
         setCurrentNumber(currentNumber + " " + buttonPressed + " ")
+
+        setlastPressKey(buttonPressed)
         return
+
       }
 
       switch(buttonPressed){
@@ -77,11 +90,21 @@ export default function App() {
           setCurrentNumber("")
           return
         case '=':
+
+          if(lastPressKey === '+' | lastPressKey === "-" | lastPressKey === "x" | lastPressKey === "÷" | lastPressKey === "=" ){
+          
+            setlastPressKey(buttonPressed)
+           
+           return
+          }
+
+          if(!currentNumber) return
           setLastNumber(currentNumber + " = ")
           calculator()
           return
       }
       setCurrentNumber(currentNumber + buttonPressed)
+      setlastPressKey(buttonPressed)
     }
 
   return (
