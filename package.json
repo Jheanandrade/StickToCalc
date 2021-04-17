@@ -13,6 +13,8 @@
     "@react-native-community/voice": "^1.1.9",
     "react": "17.0.1",
     "react-native": "0.64.0",
+    "react-native-google-speech-to-text": "^1.0.4",
+    "react-native-tts": "^4.1.0",
     "react-native-vector-icons": "^8.1.0",
     "react-speech-recognition": "^3.8.0"
   },

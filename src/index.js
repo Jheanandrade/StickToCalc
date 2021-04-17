@@ -1,9 +1,10 @@
 import React , {useCallback, useEffect, useState} from 'react'
-import { View , Text, StyleSheet, StatusBar, TouchableOpacity } from 'react-native'
+import { View , Text, StyleSheet, StatusBar } from 'react-native'
 import Voice from '@react-native-community/voice'
 import Button from  './components/Buttons'
 import Display from './components/Display'  
 import RecordButton from './components/RecordButton'
+import Tts from 'react-native-tts'
 
 const styles = StyleSheet.create({
   contanier:{
@@ -63,9 +64,11 @@ export default function App() {
       })
 
       setCurrentNumber((sumTotal ).toString())
+      return sumTotal
 
     }
-  
+
+
     function handleInput(buttonPressed){
      
       
@@ -159,7 +162,10 @@ export default function App() {
     Voice.onSpeechResults = onSpeechResults;
     Voice.onSpeechPartialResults = onSpeechPartialResults;
     Voice.onSpeechVolumeChanged = onSpeechVolumeChanged;
-
+    Tts.setDefaultLanguage('pt-BR');
+    Tts.setDefaultVoice("pt-BR-SMTf00")
+    Tts.setDefaultRate(0.8, true)
+    Tts.voices().then(voices => console.log(voices))
     return () => {
       Voice.destroy().then(Voice.removeAllListeners);
     };
@@ -221,10 +227,19 @@ export default function App() {
     console.log('analise de parametros ', valueCalc)
    
     if(valueCalc){
-      valueCalc = valueCalc.replace('dividido por',"/").replace('com', '+').replace('tira', '-').replace('arrocha', '+')
+      valueCalc = valueCalc.toLowerCase().replace('dividido por',"/").replace('com', '+').replace('tira', '-').replace('arrocha', '+')
       setCurrentNumber(valueCalc)
-      calculator(valueCalc)
+      const voiceResult = calculator(valueCalc)
       setLastNumber(valueCalc + ' =')
+      Tts.speak(` O resultado é ${voiceResult}`, {
+        androidParams: {
+          KEY_PARAM_PAN: 1,
+          KEY_PARAM_VOLUME: 1,
+          KEY_PARAM_STREAM: 'STREAM_MUSIC',
+        },
+      });
+
+    console.log(voiceResult)
     }
   },[results])
   
@@ -232,7 +247,7 @@ export default function App() {
     
     const validResult = counts.find((value)=>{
       console.log(value)
-      const resultsSplit = value.replace('dividido por',"/").replace('com', '+').replace('tira', '-').replace('arrocha', '+').split(' ')
+      const resultsSplit = value.toLowerCase().replace('dividido por',"/").replace('com', '+').replace('tira', '-').replace('arrocha', '+').split(' ')
 
       console.log(resultsSplit)
 

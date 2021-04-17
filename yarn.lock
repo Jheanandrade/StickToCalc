@@ -4632,6 +4632,11 @@ react-native-codegen@^0.0.6:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-google-speech-to-text@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-google-speech-to-text/-/react-native-google-speech-to-text-1.0.4.tgz#abc6412e1a7609b963f322f729117fd5fa876c91"
+  integrity sha512-UuEQyJHiorI96qhPddtaWUR1VcuwcsZQHUVGOFLHuo6e5h4eSTjn3GejfMlQ3chSafb+fU1xsktASHnoDpx2KA==
+
 react-native-vector-icons@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-8.1.0.tgz#e8ee2b17bc4d9f636da1c6f67feee8e2a850c3d8"
