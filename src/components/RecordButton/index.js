@@ -8,14 +8,10 @@ export default function RecordButton({onRecord, onCancel}) {
     <View style = {Style.contanier}>
     
    
-      <TouchableOpacity onPress= {onRecord} style = {Style.recordButton} >
+      <TouchableOpacity activeOpacity={0.7} onPressIn= {onRecord} onPressOut= {onCancel} style = {Style.recordButton} >
       <Icon name="microphone" size = {40} color= '#fff'/>
       </TouchableOpacity>
 
-      <TouchableOpacity style = {[Style.recordButton, {backgroundColor: 'red'}]}  onPress= {onCancel}>
-      <Icon name="microphone" size = {40} color= '#fff'/>
-      </TouchableOpacity>
-  
 
     </View>
 

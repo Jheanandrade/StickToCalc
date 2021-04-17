@@ -28,7 +28,7 @@ export default function App() {
       splitNumbers.forEach((item, index) => {
         console.log(item)
         console.log(sumTotal)
-        if( item === '+'|| item === '-'|| item === 'x'|| item === '÷')
+        if( item === '+'|| item === '-'|| item === 'x'|| item === '÷'|| item === '/')
         {
             currentOperation = item
         } else if( index === 0) {
@@ -51,6 +51,10 @@ export default function App() {
             sumTotal = sumTotal * parseInt(item)
             break
           case '÷': 
+          
+          sumTotal = sumTotal / parseInt(item)
+          break
+          case '/': 
           
           sumTotal = sumTotal / parseInt(item)
           break
@@ -89,7 +93,7 @@ export default function App() {
           setCurrentNumber(currentNumber.substring(0, (currentNumber.length -1)))
           return
         case 'AC':
-          
+           _destroyRecognizer()
          setLastNumber("")
           setCurrentNumber("")
           return
@@ -212,13 +216,15 @@ export default function App() {
   };
 
   useEffect(()=>{
-    const valueCalc =  finalResult(results)
+    let valueCalc =  finalResult(results)
     console.log(results) 
     console.log('analise de parametros ', valueCalc)
    
     if(valueCalc){
+      valueCalc = valueCalc.replace('dividido por',"/").replace('com', '+').replace('tira', '-').replace('arrocha', '+')
       setCurrentNumber(valueCalc)
       calculator(valueCalc)
+      setLastNumber(valueCalc + ' =')
     }
   },[results])
   
@@ -226,7 +232,7 @@ export default function App() {
     
     const validResult = counts.find((value)=>{
       console.log(value)
-      const resultsSplit = value.split(' ')
+      const resultsSplit = value.replace('dividido por',"/").replace('com', '+').replace('tira', '-').replace('arrocha', '+').split(' ')
 
       console.log(resultsSplit)
 
@@ -235,7 +241,7 @@ export default function App() {
       const valid = resultsSplit.every((item)=> {
           item = `${item}`.trim()
           console.log('Item encontrado:', item)
-        if( item === '+'||item === '-'||item === '*'||item === '/' ) {
+        if( item === '+'||item === '-'||item === 'x'||item === '/' ) {
 
           console.log('encontrei o operador')
           return true
